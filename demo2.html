@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#box ul{
+			text-align: center;
+		}
+		#box li{
+			width: 300px;
+			height: 50px;
+			line-height: 50px;
+			background-color: skyblue;
+			border-bottom: 1px solid white;
+			font-size: 20px;
+		}
+		#caidan ul{
+			display: none;
+		}
+		#caidan{
+			width: 300px;
+			height: 253px;
+			position: absolute;
+			left: 302px;
+			top: 0;
+		}
+		#caidan ul{
+			width: 300px;
+			height: 253px;
+			background: gray;
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li>倔强青铜</li>
+			<li>不屈白银</li>
+			<li>荣耀黄金</li>
+			<li>尊贵铂金</li>
+			<li>永恒钻石</li>
+		</ul>
+	</div>
+	<div id="caidan">
+		<ul class="active">
+			<li>青铜I</li>
+			<li>青铜II</li>
+			<li>青铜III</li>
+		</ul>
+		<ul>
+			<li>白银I</li>
+			<li>白银II</li>
+			<li>白银III</li>
+		</ul>
+		<ul>
+			<li>黄金I</li>
+			<li>黄金II</li>
+			<li>黄金III</li>
+			<li>黄金IV</i>
+		</ul>
+		<ul>
+			<li>铂金I</li>
+			<li>铂金II</li>
+			<li>铂金III</li>
+			<li>铂金IV</li>
+		</ul>
+		<ul>
+			<li>钻石I</li>
+			<li>钻石II</li>
+			<li>钻石III</li>
+			<li>钻石IV</li>
+			<li>钻石V</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	//一级菜单绑定mouseover事件
+	$("#box>ul li").on("mouseover",function(){
+		var index=$(this).index();
+		$("#caidan ul").eq(index).show().siblings().hide();
+
+	})
+	//二级菜单绑定mouseover事件
+	$("#caidan ul").on("mouseover",function(){
+		$(this).show();
+	})
+	//二级菜单绑定mouseout事件
+	$("#caidan ul").on("mouseout",function(){
+		$(this).hide();
+	})
+	//一级菜单绑定mouseout事件
+	$("#box>ul li").on("mouseout",function(){
+		var index=$(this).index();
+		$("#caidan ul").eq(index).hide();
+	})
+</script>
+</html>
